@@ -110,6 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label>Âge :</label>
         <input type="number" name="age" value="<?= $age ?>">
 
+        
         <label>Filière :</label>
         <select name="filiere">
             <option value="">-- Choisir --</option>
