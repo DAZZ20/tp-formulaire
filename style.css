@@ -1,0 +1,226 @@
+/* =============================================================
+   style.css — Feuille de style commune · TP Formulaires PHP
+   Développement Web · JM2 · JUNIA Maroc · Mohamed Hdafa
+   ============================================================= */
+
+/* ── Variables ── */
+:root {
+  --color-bg:         #f9fafb;
+  --color-surface:    #ffffff;
+  --color-border:     #d1d5db;
+  --color-text:       #111827;
+  --color-text-soft:  #6b7280;
+  --color-accent:     #1d4ed8;
+  --color-accent-h:   #1e40af;
+
+  --color-error-text: #b91c1c;
+  --color-error-bg:   #fff0f0;
+  --color-error-border: #fca5a5;
+
+  --color-success-text: #166534;
+  --color-success-bg:   #f0fdf4;
+  --color-success-border: #86efac;
+
+  --font-body: 'Segoe UI', Arial, sans-serif;
+  --font-mono: 'Consolas', 'Courier New', monospace;
+
+  --radius: 6px;
+  --shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Page ── */
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+  padding: 40px 16px 80px;
+}
+
+/* ── Conteneur principal ── */
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 40px 48px;
+}
+
+/* ── Titre de la page ── */
+h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+.page-subtitle {
+  font-size: 14px;
+  color: var(--color-text-soft);
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ── Formulaire ── */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+label .required {
+  color: var(--color-error-text);
+  margin-left: 2px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 9px 13px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-text);
+  background: var(--color-surface);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.12);
+}
+
+textarea { resize: vertical; min-height: 120px; }
+
+/* ── Checkbox ── */
+.checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.checkbox-group input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin-top: 4px;
+  flex-shrink: 0;
+  accent-color: var(--color-accent);
+}
+.checkbox-group label {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+/* ── Bouton ── */
+button[type="submit"] {
+  padding: 11px 24px;
+  background: var(--color-accent);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.15s;
+  align-self: flex-start;
+}
+button[type="submit"]:hover { background: var(--color-accent-h); }
+
+/* ── Erreurs ── */
+.erreurs {
+  list-style: none;
+  border: 1px solid var(--color-error-border);
+  background: var(--color-error-bg);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.erreurs li {
+  font-size: 14px;
+  color: var(--color-error-text);
+  padding-left: 18px;
+  position: relative;
+}
+.erreurs li::before {
+  content: '✕';
+  position: absolute;
+  left: 0;
+  font-size: 11px;
+  top: 3px;
+  color: var(--color-error-text);
+}
+
+/* ── Fiche de confirmation ── */
+.confirmation {
+  border: 1px solid var(--color-success-border);
+  background: var(--color-success-bg);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+}
+.confirmation h2 {
+  font-size: 18px;
+  color: var(--color-success-text);
+  margin-bottom: 16px;
+}
+.confirmation .recap-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 0;
+  border-bottom: 1px solid #d1fae5;
+}
+.confirmation .recap-item:last-of-type { border-bottom: none; }
+.confirmation .recap-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #166534;
+  opacity: 0.7;
+}
+.confirmation .recap-value {
+  font-size: 15px;
+  color: var(--color-success-text);
+}
+.confirmation .message-final {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #d1fae5;
+  font-size: 14px;
+  color: var(--color-success-text);
+  font-style: italic;
+}
+.confirmation a {
+  display: inline-block;
+  margin-top: 18px;
+  font-size: 14px;
+  color: var(--color-accent);
+  text-decoration: underline;
+}
