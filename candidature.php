@@ -132,4 +132,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Candidature</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<form action="candidature.php" method="POST">
+
+<input type="text" name="prenom">
+<input type="text" name="nom">
+<input type="email" name="email">
+<input type="number" name="age">
+
+<select name="filiere">
+    <option value="">-- Choisir --</option>
+    <option value="Informatique">Informatique</option>
+    <option value="Électronique">Électronique</option>
+    <option value="Mécanique">Mécanique</option>
+    <option value="Autre">Autre</option>
+</select>
+
+<textarea name="motivation" rows="6"></textarea>
+
+<label>
+<input type="checkbox" name="reglement" value="1">
+J'accepte le règlement
+</label>
+
+<button type="submit">Envoyer</button>
+
+</form>
 <body>
