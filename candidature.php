@@ -47,6 +47,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $erreurs[] = "Vous devez accepter le règlement.";
     }
 }
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $prenom = $_POST['prenom'] ?? '';
+    $nom = $_POST['nom'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $age = $_POST['age'] ?? '';
+    $filiere = $_POST['filiere'] ?? '';
+    $motivation = $_POST['motivation'] ?? '';
+
+    $reglement = isset($_POST['reglement']);
+}
 ?>
 
 <!DOCTYPE html>
